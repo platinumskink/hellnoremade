@@ -1,9 +1,12 @@
 extends Node2D
 
+@onready var god: Sprite2D = $God
 @onready var arm: Sprite2D = $Arm
 @onready var timer: Timer = $Timer
 @onready var arrow: Sprite2D = $Arrow
 @onready var weapon: Sprite2D = $God/Weapon
+
+@export var projectile_factory: ProjectileFactory
 
 const apple: Texture2D = preload("res://assets/Apple.png")
 const lightning: Texture2D = preload("res://assets/Bolt.png")
@@ -79,6 +82,7 @@ func _input(event): # When an action happened.
 		canThrow = false
 		timer.start(throwDelay)
 		throw.emit()
+		projectile_factory.shoot(god.global_position, Vector2(0,0), currentWeapon)
 		
 	if event.is_action_pressed("weapon1"):
 		currentWeapon = GlobalEnums.Weapon.APPLE
