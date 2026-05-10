@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dch31mk87r3rh"]
+
+[ext_resource type="Texture2D" uid="uid://bio2gd4ai133f" path="res://assets/Weapon Choice.png" id="1_qw0r6"]
+[ext_resource type="Script" uid="uid://c3165vx7aiinw" path="res://scripts/inventory.gd" id="1_ty45s"]
+[ext_resource type="Texture2D" uid="uid://d1c6vi5ced1bd" path="res://assets/TheCircle.png" id="3_53g1v"]
+
+[node name="Inventory" type="Node2D" unique_id=465546189]
+script = ExtResource("1_ty45s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=827173243]
+texture = ExtResource("1_qw0r6")
+
+[node name="Selection" type="Sprite2D" parent="Sprite2D" unique_id=1044815177]
+position = Vector2(125, 1)
+texture = ExtResource("3_53g1v")

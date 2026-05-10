@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bkl46e6qrn0x8" path="res://assets/God.png" id="1_n5rnk"]
 [ext_resource type="Script" uid="uid://cujupkh7hbovt" path="res://scripts/god.gd" id="1_wk2p8"]
 [ext_resource type="Texture2D" uid="uid://dwsgki6qp7ck8" path="res://assets/Arm.png" id="3_nostd"]
+[ext_resource type="Texture2D" uid="uid://bpo2t2tnorrbt" path="res://assets/Apple.png" id="3_tjdyr"]
 [ext_resource type="Texture2D" uid="uid://47keyq5iiudg" path="res://assets/Arrow3.png" id="4_nostd"]
 
 [node name="God" type="Node2D" unique_id=1808130909]
@@ -11,6 +12,10 @@ script = ExtResource("1_wk2p8")
 [node name="God" type="Sprite2D" parent="." unique_id=1945406376]
 position = Vector2(0, -3)
 texture = ExtResource("1_n5rnk")
+
+[node name="Weapon" type="Sprite2D" parent="God" unique_id=1150024010]
+position = Vector2(22, -13)
+texture = ExtResource("3_tjdyr")
 
 [node name="Arm" type="Sprite2D" parent="." unique_id=1430887980]
 position = Vector2(5, -2)

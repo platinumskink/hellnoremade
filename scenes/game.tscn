@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://ktdbf4q4fvtq"]
 
+[ext_resource type="Script" uid="uid://cbr3igorip2s8" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://2sswqdv7puim" path="res://assets/God Stage3.png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://cmr3akhp1vpcv" path="res://scenes/god.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://dch31mk87r3rh" path="res://scenes/inventory.tscn" id="4_lbhrr"]
 
 [node name="Game" type="Node2D" unique_id=1261404024]
+script = ExtResource("1_lnu2h")
 
 [node name="GodStage3" type="Sprite2D" parent="." unique_id=1765850914]
 texture = ExtResource("1_uwrxv")
@@ -11,3 +14,9 @@ centered = false
 
 [node name="God" parent="." unique_id=1808130909 instance=ExtResource("2_yqjtg")]
 position = Vector2(400, 91)
+
+[node name="Inventory" parent="." unique_id=465546189 instance=ExtResource("4_lbhrr")]
+position = Vector2(647, 27)
+
+[connection signal="changed_weapon" from="God" to="." method="_on_god_changed_weapon"]
+[connection signal="throw" from="God" to="." method="_on_god_throw"]
