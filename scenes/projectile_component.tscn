@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bxn746xvlew7v"]
+
+[sub_resource type="GDScript" id="GDScript_mtgpy"]
+script/source = "extends Node
+
+@export var initial_speed: int
+
+func set_starting_speed(distance_vector: Vector2) -> void:
+	var parent := get_parent()
+	if parent is GraphicalObject:
+		parent.speed = initial_speed * distance_vector
+"
+
+[node name="ProjectileComponent" type="Node" unique_id=1239017364]
+script = SubResource("GDScript_mtgpy")

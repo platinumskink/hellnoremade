@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://3th3ik40tvqb"]
+
+[ext_resource type="Script" uid="uid://7k6xq5eupnsy" path="res://scripts/projectile.gd" id="1_83eji"]
+[ext_resource type="Texture2D" uid="uid://odpar4vv0gru" path="res://assets/CometInFlight.png" id="2_83eji"]
+[ext_resource type="PackedScene" uid="uid://cvu5e7qw2qc23" path="res://scenes/gravity_component.tscn" id="3_lhxke"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3dmh2"]
+size = Vector2(15, 11.5)
+
+[node name="Meteor" type="Area2D" unique_id=972890807]
+script = ExtResource("1_83eji")
+initial_speed = 600
+metadata/_custom_type_script = "uid://cge861h7bsyos"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=391272311]
+position = Vector2(0, -3.5)
+texture = ExtResource("2_83eji")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1160213050]
+position = Vector2(0.5, 0.25)
+shape = SubResource("RectangleShape2D_3dmh2")
+
+[node name="GravityComponent" parent="." unique_id=397096499 instance=ExtResource("3_lhxke")]
+gravity_force = 2100
+
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dm3egbw04kpco"]
+
+[ext_resource type="Script" uid="uid://bsib0wphx7nxy" path="res://scripts/rain.gd" id="1_5mvay"]
+[ext_resource type="Texture2D" uid="uid://s1lf6vshpr58" path="res://assets/Cloud.png" id="1_tchf5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mvay"]
+size = Vector2(134, 20)
+
+[node name="Cloud" type="Area2D" unique_id=1979189992]
+script = ExtResource("1_5mvay")
+time_range_min = 0.1
+time_range_max = 0.4
+initial_speed = 40
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1782728383]
+texture = ExtResource("1_tchf5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=797832754]
+shape = SubResource("RectangleShape2D_5mvay")
+
+[node name="Timer" type="Timer" parent="." unique_id=1626944252]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,9 +1,16 @@
 extends Node2D
 
 @onready var selection: Sprite2D = $Sprite2D/Selection
+@onready var lightning_label: Label = $LightningLabel
+@onready var meteor_label: Label = $MeteorLabel
+@onready var rain_label: Label = $RainLabel
+@onready var bow_label: Label = $BowLabel
+@onready var bomb_label: Label = $BombLabel
+
 
 var weapon_x_values: Dictionary[GlobalEnums.Weapon, int] = {}
-		
+var weapon_ammo_label_dictionary: Dictionary[GlobalEnums.Weapon, Label] = {}
+
 
 # Y = 
 var AppleX    : int = -127
@@ -23,8 +30,21 @@ func _ready() -> void:
 		GlobalEnums.Weapon.BOW: BowX,
 		GlobalEnums.Weapon.BOMB: BombX,
 	}
+	weapon_ammo_label_dictionary = {
+		GlobalEnums.Weapon.LIGHTNING: lightning_label,
+		GlobalEnums.Weapon.METEORITE: meteor_label,
+		GlobalEnums.Weapon.RAIN: rain_label,
+		GlobalEnums.Weapon.BOW: bow_label,
+		GlobalEnums.Weapon.BOMB: bomb_label,
+  	}
 	selection.position.x = weapon_x_values[GlobalEnums.Weapon.APPLE]
 
 
 func set_current_weapon(wpn: GlobalEnums.Weapon):
 	selection.position.x = weapon_x_values[wpn]
+
+func update_inventory(wpn: GlobalEnums.Weapon, ammo: int):
+	if wpn != GlobalEnums.Weapon.APPLE:
+		var label: Label = weapon_ammo_label_dictionary[wpn]
+		print("ammo: " + str(ammo))
+		label.text = str(ammo)

@@ -16,7 +16,7 @@ const bow_drawn: Texture2D = preload("res://assets/BowHeld.png")
 const bow_fired: Texture2D = preload("res://assets/BowLaunched.png")
 const bomb: Texture2D = preload("res://assets/Bomb.png")
 
-signal throw
+signal throw(ammo: int)
 signal changed_weapon(wpn: GlobalEnums.Weapon)
 
 var weapon_sprites: Dictionary[GlobalEnums.Weapon, Texture2D] = {
@@ -35,6 +35,14 @@ var weapon_in_hand_offsets: Dictionary[GlobalEnums.Weapon, Vector2] = {
 	GlobalEnums.Weapon.BOW: Vector2(0,0),
 	GlobalEnums.Weapon.BOMB: Vector2(22,-13),
 }
+var weapon_ammo: Dictionary[GlobalEnums.Weapon, int] = {
+	GlobalEnums.Weapon.APPLE: 1,
+	GlobalEnums.Weapon.LIGHTNING: 10,
+	GlobalEnums.Weapon.METEORITE: 10,
+	GlobalEnums.Weapon.RAIN: 10,
+	GlobalEnums.Weapon.BOW: 10,
+	GlobalEnums.Weapon.BOMB: 10,
+}
 
 var throwDelay: float = 0.5
 var canThrow: bool = true
@@ -50,7 +58,6 @@ var currentWeapon: GlobalEnums.Weapon = GlobalEnums.Weapon.APPLE:
 		if value != GlobalEnums.Weapon.BOW:
 			weapon.rotation = 0
 			arm.visible = true
-			
 		else:
 			arm.visible = false
 
@@ -67,12 +74,12 @@ func _physics_process(delta: float) -> void:
 		hasThrown = true
 	if currentWeapon == GlobalEnums.Weapon.BOW:
 		weapon.look_at(get_global_mouse_position())
-		if hasThrown:
+		if hasThrown || weapon_ammo[currentWeapon] <= 0:
 			weapon.texture = bow_fired
 		else:
 			weapon.texture = bow_drawn
 	else:
-		if hasThrown:
+		if hasThrown || weapon_ammo[currentWeapon] <= 0:
 			weapon.visible = false
 		else:
 			weapon.visible = true
@@ -81,8 +88,12 @@ func _input(event): # When an action happened.
 	if event.is_action_pressed("click") && canThrow:
 		canThrow = false
 		timer.start(throwDelay)
-		throw.emit()
-		projectile_factory.shoot(god.global_position, Vector2(0,0), currentWeapon)
+		if weapon_ammo[currentWeapon] > 0:
+			if currentWeapon != GlobalEnums.Weapon.APPLE:
+				weapon_ammo[currentWeapon] -= 1
+			throw.emit(currentWeapon, weapon_ammo[currentWeapon])
+			var distance_vector: Vector2 = get_global_mouse_position() - global_position
+			projectile_factory.shoot(god.global_position, distance_vector.normalized(), currentWeapon)
 		
 	if event.is_action_pressed("weapon1"):
 		currentWeapon = GlobalEnums.Weapon.APPLE

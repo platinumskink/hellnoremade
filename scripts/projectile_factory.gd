@@ -2,10 +2,31 @@ class_name ProjectileFactory
 extends Node
 
 var apple = preload("res://scenes/apple.tscn")
+var lightning = preload("res://scenes/lightning.tscn")
+var meteor = preload("res://scenes/meteor.tscn")
+var rain = preload("res://scenes/rain.tscn")
 
-func shoot(start_point: Vector2, speed: Vector2, wpn: GlobalEnums.Weapon):
+@export var gameZone: GameZone
+
+func shoot(start_point: Vector2, distance_vector: Vector2, wpn: GlobalEnums.Weapon):
+	var instance
 	match wpn:
 		GlobalEnums.Weapon.APPLE:
-			var instance := apple.instantiate()
-			instance.position = start_point
-			add_child(instance)
+			instance = apple.instantiate()
+			instance.set_starting_speed(distance_vector)
+		GlobalEnums.Weapon.LIGHTNING:
+			instance = lightning.instantiate()
+			instance.set_starting_speed(distance_vector)
+			instance.turn_towards_direction()
+		GlobalEnums.Weapon.METEORITE:
+			instance = meteor.instantiate()
+			instance.set_starting_speed(distance_vector)
+			instance.turn = true
+		GlobalEnums.Weapon.RAIN:
+			instance = rain.instantiate()
+			instance.set_starting_speed(distance_vector)
+			
+	instance.position = start_point
+	add_child(instance)
+	if wpn == GlobalEnums.Weapon.RAIN:
+		instance.reset_timer()

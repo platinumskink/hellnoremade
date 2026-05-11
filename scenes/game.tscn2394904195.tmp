@@ -5,16 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://cmr3akhp1vpcv" path="res://scenes/god.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://dch31mk87r3rh" path="res://scenes/inventory.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://dka66u38vc3oi" path="res://scenes/projectile_factory.tscn" id="5_iywne"]
-[ext_resource type="PackedScene" uid="uid://b2lqqnqikkec" path="res://scenes/game_zone.tscn" id="6_p57ef"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5sy4"]
-size = Vector2(819, 630)
 
 [node name="Game" type="Node2D" unique_id=1261404024]
 script = ExtResource("1_lnu2h")
 
 [node name="GodStage3" type="Sprite2D" parent="." unique_id=1765850914]
-z_index = -10
 texture = ExtResource("1_uwrxv")
 centered = false
 
@@ -25,14 +20,7 @@ projectile_factory = NodePath("../ProjectileFactory")
 [node name="Inventory" parent="." unique_id=465546189 instance=ExtResource("4_lbhrr")]
 position = Vector2(647, 27)
 
-[node name="ProjectileFactory" parent="." unique_id=1081054235 node_paths=PackedStringArray("gameZone") instance=ExtResource("5_iywne")]
-gameZone = NodePath("../GameZone")
-
-[node name="GameZone" parent="." unique_id=1492997999 instance=ExtResource("6_p57ef")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GameZone" unique_id=1882721503]
-position = Vector2(400.5, 305)
-shape = SubResource("RectangleShape2D_u5sy4")
+[node name="ProjectileFactory" parent="." unique_id=1081054235 instance=ExtResource("5_iywne")]
 
 [connection signal="changed_weapon" from="God" to="." method="_on_god_changed_weapon"]
 [connection signal="throw" from="God" to="." method="_on_god_throw"]

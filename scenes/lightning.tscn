@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://csbbdk377uxb1"]
+
+[ext_resource type="Texture2D" uid="uid://n15xy4k1751j" path="res://assets/Bolt.png" id="1_k2dum"]
+[ext_resource type="Script" uid="uid://7k6xq5eupnsy" path="res://scripts/projectile.gd" id="1_n7g4i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7g4i"]
+size = Vector2(48, 18)
+
+[node name="Lightning" type="Area2D" unique_id=542167930]
+script = ExtResource("1_n7g4i")
+initial_speed = 2000
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1988435602]
+texture = ExtResource("1_k2dum")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=203557219]
+shape = SubResource("RectangleShape2D_n7g4i")

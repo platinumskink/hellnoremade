@@ -1,9 +1,10 @@
 extends Node
 
-var gravity_force: int = 1000
+@export var gravity_force: int
 
 func _physics_process(delta: float) -> void:
 	var parent := get_parent()
 	if parent is GraphicalObject:
 		parent.speed.y += gravity_force * delta
-		print("gravity_force: "+ str(gravity_force))
+		if parent.turn:
+			parent.turn_towards_direction()

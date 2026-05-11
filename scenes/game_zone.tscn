@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b2lqqnqikkec"]
+
+[ext_resource type="Script" uid="uid://bsknfy3kwtemv" path="res://scripts/game_zone.gd" id="1_rqvnb"]
+
+[node name="GameZone" type="Area2D" unique_id=1492997999]
+script = ExtResource("1_rqvnb")
+
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
