@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://co3ljvkxfyhh5"]
+
+[ext_resource type="Script" uid="uid://bboeq1amxscdj" path="res://scripts/arrow.gd" id="1_23jat"]
+[ext_resource type="Texture2D" uid="uid://dkqwegyp507x8" path="res://assets/BowArrow.png" id="2_23jat"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8ifc"]
+size = Vector2(35, 7)
+
+[node name="Arrow" type="Area2D" unique_id=510011181]
+script = ExtResource("1_23jat")
+_rotation_speed = 7.0
+initial_speed = 500
+metadata/_custom_type_script = "uid://7k6xq5eupnsy"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=72134144]
+texture = ExtResource("2_23jat")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1435554799]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_q8ifc")
+
+[node name="Timer" type="Timer" parent="." unique_id=874692703]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

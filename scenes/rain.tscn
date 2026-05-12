@@ -9,7 +9,7 @@ size = Vector2(134, 20)
 [node name="Cloud" type="Area2D" unique_id=1979189992]
 script = ExtResource("1_5mvay")
 time_range_min = 0.1
-time_range_max = 0.4
+time_range_max = 0.2
 initial_speed = 40
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1782728383]
@@ -20,4 +20,13 @@ shape = SubResource("RectangleShape2D_5mvay")
 
 [node name="Timer" type="Timer" parent="." unique_id=1626944252]
 
+[node name="Timer2" type="Timer" parent="." unique_id=1504025496]
+
+[node name="Timer3" type="Timer" parent="." unique_id=1924585183]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_timer_3_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_timer_timeout"]
