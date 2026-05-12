@@ -8,7 +8,7 @@ extends Projectile
 @onready var timer_3: Timer = $Timer3
 @onready var cloud_length: CollisionShape2D = $CollisionShape2D
 
-var rainDrop = preload("res://scenes/rain_drop.tscn")
+var rainDrop = preload("res://scenes/weapons/rain_drop.tscn")
 
 func reset_timers():
 	reset_timer()
@@ -52,5 +52,5 @@ func spawn_raindrop() -> void:
 	var x = randi_range(rect.position.x, rect.position.x+rect.size.x)
 	var rand_point = Vector2(x,0) 
 	instance.z_index -= 1
-	instance.position = rand_point
-	add_child(instance)
+	instance.position = rand_point + global_position
+	get_parent().add_child(instance)

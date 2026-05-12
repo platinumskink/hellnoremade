@@ -60,6 +60,8 @@ var currentWeapon: GlobalEnums.Weapon = GlobalEnums.Weapon.APPLE:
 			arm.visible = true
 		else:
 			arm.visible = false
+		if value == GlobalEnums.Weapon.LIGHTNING:
+			weapon.rotation_degrees = 90
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -73,6 +75,7 @@ func _physics_process(delta: float) -> void:
 		arm.look_at(get_global_mouse_position())
 		hasThrown = true
 	if currentWeapon == GlobalEnums.Weapon.BOW:
+		weapon.visible = true
 		weapon.look_at(get_global_mouse_position())
 		if hasThrown || weapon_ammo[currentWeapon] <= 0:
 			weapon.texture = bow_fired

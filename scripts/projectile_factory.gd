@@ -1,12 +1,12 @@
 class_name ProjectileFactory
 extends Node
 
-var apple = preload("res://scenes/apple.tscn")
-var lightning = preload("res://scenes/lightning.tscn")
-var meteor = preload("res://scenes/meteor.tscn")
-var rain = preload("res://scenes/rain.tscn")
-var arrow = preload("res://scenes/arrow.tscn")
-var bomb = preload("res://scenes/bomb.tscn")
+var apple = preload("res://scenes/weapons/apple.tscn")
+var lightning = preload("res://scenes/weapons/lightning.tscn")
+var meteor = preload("res://scenes/weapons/meteor.tscn")
+var rain = preload("res://scenes/weapons/rain.tscn")
+var arrow = preload("res://scenes/weapons/arrow.tscn")
+var bomb = preload("res://scenes/weapons/bomb.tscn")
 
 
 @export var gameZone: GameZone

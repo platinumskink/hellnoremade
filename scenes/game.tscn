@@ -3,12 +3,16 @@
 [ext_resource type="Script" uid="uid://cbr3igorip2s8" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://2sswqdv7puim" path="res://assets/God Stage3.png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://cmr3akhp1vpcv" path="res://scenes/god.tscn" id="2_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://dch31mk87r3rh" path="res://scenes/inventory.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://dch31mk87r3rh" path="res://scenes/weapons/inventory.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://dka66u38vc3oi" path="res://scenes/projectile_factory.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://b2lqqnqikkec" path="res://scenes/game_zone.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://dac68y2uwb7to" path="res://scenes/top_zone.tscn" id="7_u5sy4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5sy4"]
-size = Vector2(819, 630)
+size = Vector2(819, 1037)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gee14"]
+size = Vector2(834, 282)
 
 [node name="Game" type="Node2D" unique_id=1261404024]
 script = ExtResource("1_lnu2h")
@@ -31,8 +35,14 @@ gameZone = NodePath("../GameZone")
 [node name="GameZone" parent="." unique_id=1492997999 instance=ExtResource("6_p57ef")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameZone" unique_id=1882721503]
-position = Vector2(400.5, 305)
+position = Vector2(400.5, 101.5)
 shape = SubResource("RectangleShape2D_u5sy4")
+
+[node name="TopZone" parent="." unique_id=407322558 instance=ExtResource("7_u5sy4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopZone" unique_id=1932960698]
+position = Vector2(401, -169)
+shape = SubResource("RectangleShape2D_gee14")
 
 [connection signal="changed_weapon" from="God" to="." method="_on_god_changed_weapon"]
 [connection signal="throw" from="God" to="." method="_on_god_throw"]
