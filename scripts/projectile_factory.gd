@@ -6,6 +6,7 @@ var lightning = preload("res://scenes/lightning.tscn")
 var meteor = preload("res://scenes/meteor.tscn")
 var rain = preload("res://scenes/rain.tscn")
 var arrow = preload("res://scenes/arrow.tscn")
+var bomb = preload("res://scenes/bomb.tscn")
 
 
 @export var gameZone: GameZone
@@ -31,6 +32,9 @@ func shoot(start_point: Vector2, distance_vector: Vector2, wpn: GlobalEnums.Weap
 			instance = arrow.instantiate()
 			instance.set_starting_speed(distance_vector)
 			instance.turn_towards_direction()
+		GlobalEnums.Weapon.BOMB:
+			instance = bomb.instantiate()
+			instance.set_starting_speed(distance_vector)
 
 			
 	instance.position = start_point
