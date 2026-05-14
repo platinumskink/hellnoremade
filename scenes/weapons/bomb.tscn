@@ -10,6 +10,7 @@ radius = 9.0
 [node name="Bomb" type="Area2D" unique_id=996288041]
 script = ExtResource("1_870cc")
 initial_speed = 750
+weapon_type = 5
 metadata/_custom_type_script = "uid://7k6xq5eupnsy"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=644206191]

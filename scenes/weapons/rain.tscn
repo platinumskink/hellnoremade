@@ -11,6 +11,7 @@ script = ExtResource("1_5mvay")
 time_range_min = 0.1
 time_range_max = 0.2
 initial_speed = 40
+weapon_type = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1782728383]
 texture = ExtResource("1_tchf5")
@@ -27,6 +28,6 @@ shape = SubResource("RectangleShape2D_5mvay")
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="Timer3" to="." method="_on_timer_3_timeout"]
 [connection signal="timeout" from="Timer3" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_timer_3_timeout"]
 [connection signal="timeout" from="Timer3" to="." method="_on_timer_timeout"]

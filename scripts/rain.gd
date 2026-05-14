@@ -1,8 +1,8 @@
 class_name Rain
 extends Projectile
 
-@export_range(0.1, 2.0, 0.1) var time_range_min: float
-@export_range(0.1, 2.0, 0.1) var time_range_max: float
+@export_range(0.1, 2.0, 0.01) var time_range_min: float
+@export_range(0.1, 2.0, 0.01) var time_range_max: float
 @onready var timer: Timer = $Timer
 @onready var timer_2: Timer = $Timer2
 @onready var timer_3: Timer = $Timer3
@@ -17,19 +17,16 @@ func reset_timers():
 
 func reset_timer():
 	var new_time: float = randf_range(time_range_min, time_range_max)
-	print(new_time)
 	timer.wait_time = new_time
 	timer.start(0)
 
 func reset_timer_2():
 	var new_time: float = randf_range(time_range_min, time_range_max)
-	print(new_time)
 	timer_2.wait_time = new_time
 	timer_2.start(0)
 
 func reset_timer_3():
 	var new_time: float = randf_range(time_range_min, time_range_max)
-	print(new_time)
 	timer_3.wait_time = new_time
 	timer_3.start(0)
 

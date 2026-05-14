@@ -9,4 +9,14 @@ enum Weapon {
 	RAIN,
 	BOW,
 	BOMB,
+	RAINDROP,
+}
+
+enum Demons {
+	DEMON,
+	DEBAT,
+	UMBRELLIE,
+	SKYVER,
+	MUSCLE,
+	BLOB,
 }

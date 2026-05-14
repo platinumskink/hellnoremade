@@ -7,12 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://dka66u38vc3oi" path="res://scenes/projectile_factory.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://b2lqqnqikkec" path="res://scenes/game_zone.tscn" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://dac68y2uwb7to" path="res://scenes/top_zone.tscn" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://d3afdmnbe4gu1" path="res://scenes/enemy_factory.tscn" id="8_gee14"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5sy4"]
 size = Vector2(819, 1037)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gee14"]
-size = Vector2(834, 282)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gee14"]
+normal = Vector2(0, 1)
 
 [node name="Game" type="Node2D" unique_id=1261404024]
 script = ExtResource("1_lnu2h")
@@ -41,8 +42,17 @@ shape = SubResource("RectangleShape2D_u5sy4")
 [node name="TopZone" parent="." unique_id=407322558 instance=ExtResource("7_u5sy4")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopZone" unique_id=1932960698]
-position = Vector2(401, -169)
-shape = SubResource("RectangleShape2D_gee14")
+position = Vector2(401, -81)
+shape = SubResource("WorldBoundaryShape2D_gee14")
+
+[node name="EnemyFactory" parent="." unique_id=1030360853 instance=ExtResource("8_gee14")]
+position = Vector2(10, 631)
+
+[node name="LifeTracker" type="Label" parent="." unique_id=1115242624]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "100"
 
 [connection signal="changed_weapon" from="God" to="." method="_on_god_changed_weapon"]
 [connection signal="throw" from="God" to="." method="_on_god_throw"]
+[connection signal="enemy_escaped" from="TopZone" to="." method="_on_top_zone_enemy_escaped"]

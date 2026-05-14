@@ -46,5 +46,4 @@ func set_current_weapon(wpn: GlobalEnums.Weapon):
 func update_inventory(wpn: GlobalEnums.Weapon, ammo: int):
 	if wpn != GlobalEnums.Weapon.APPLE:
 		var label: Label = weapon_ammo_label_dictionary[wpn]
-		print("ammo: " + str(ammo))
 		label.text = str(ammo)

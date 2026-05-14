@@ -10,6 +10,7 @@ size = Vector2(35, 7)
 script = ExtResource("1_23jat")
 _rotation_speed = 7.0
 initial_speed = 500
+weapon_type = 4
 metadata/_custom_type_script = "uid://7k6xq5eupnsy"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=72134144]

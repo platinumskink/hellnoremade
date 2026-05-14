@@ -10,6 +10,7 @@ size = Vector2(15, 11.5)
 [node name="Meteor" type="Area2D" unique_id=972890807]
 script = ExtResource("1_83eji")
 initial_speed = 600
+weapon_type = 2
 metadata/_custom_type_script = "uid://cge861h7bsyos"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=391272311]

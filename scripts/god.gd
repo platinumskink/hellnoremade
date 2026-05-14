@@ -112,14 +112,14 @@ func _input(event): # When an action happened.
 		currentWeapon = GlobalEnums.Weapon.BOMB
 	if event.is_action_pressed("nextWeapon"):
 		var newWeapon:int = currentWeapon + 1
-		if newWeapon >= GlobalEnums.Weapon.size():
+		if newWeapon > 5:
 			currentWeapon = 0
 		else:
 			currentWeapon = newWeapon
 	if event.is_action_pressed("previousWeapon"):
 		var newWeapon:int = currentWeapon - 1
 		if newWeapon < 0:
-			currentWeapon = GlobalEnums.Weapon.size()-1
+			currentWeapon = 5
 		else:
 			currentWeapon = newWeapon
 

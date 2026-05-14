@@ -9,6 +9,7 @@ size = Vector2(48, 18)
 [node name="Lightning" type="Area2D" unique_id=542167930]
 script = ExtResource("1_n7g4i")
 initial_speed = 2000
+weapon_type = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1988435602]
 texture = ExtResource("1_k2dum")

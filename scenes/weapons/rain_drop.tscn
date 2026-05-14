@@ -10,6 +10,7 @@ size = Vector2(4, 10)
 [node name="RainDrop" type="Area2D" unique_id=1904266608]
 script = ExtResource("1_33u3d")
 initial_speed = 400
+weapon_type = 3
 metadata/_custom_type_script = "uid://7k6xq5eupnsy"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=757147321]
