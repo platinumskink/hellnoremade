@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3dmh2"]
 size = Vector2(15, 11.5)
 
-[node name="Meteor" type="Area2D" unique_id=972890807]
+[node name="Meteor" type="Area2D" unique_id=972890807 groups=["projectiles"]]
 script = ExtResource("1_83eji")
 initial_speed = 600
 weapon_type = 2

@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0k2ym"]
 size = Vector2(4, 10)
 
-[node name="RainDrop" type="Area2D" unique_id=1904266608]
+[node name="RainDrop" type="Area2D" unique_id=1904266608 groups=["projectiles"]]
 script = ExtResource("1_33u3d")
 initial_speed = 400
 weapon_type = 3

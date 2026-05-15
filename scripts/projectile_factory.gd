@@ -1,17 +1,17 @@
 class_name ProjectileFactory
 extends Node
 
-var apple = preload("res://scenes/weapons/apple.tscn")
-var lightning = preload("res://scenes/weapons/lightning.tscn")
-var meteor = preload("res://scenes/weapons/meteor.tscn")
-var rain = preload("res://scenes/weapons/rain.tscn")
-var arrow = preload("res://scenes/weapons/arrow.tscn")
-var bomb = preload("res://scenes/weapons/bomb.tscn")
+var apple: Resource = preload("res://scenes/weapons/apple.tscn")
+var lightning: Resource = preload("res://scenes/weapons/lightning.tscn")
+var meteor: Resource = preload("res://scenes/weapons/meteor.tscn")
+var rain: Resource = preload("res://scenes/weapons/rain.tscn")
+var arrow: Resource = preload("res://scenes/weapons/arrow.tscn")
+var bomb: Resource = preload("res://scenes/weapons/bomb.tscn")
 
 
 @export var gameZone: GameZone
 
-func shoot(start_point: Vector2, distance_vector: Vector2, wpn: GlobalEnums.Weapon):
+func shoot(start_point: Vector2, distance_vector: Vector2, wpn: GlobalEnums.Weapon) -> void:
 	var instance
 	match wpn:
 		GlobalEnums.Weapon.APPLE:

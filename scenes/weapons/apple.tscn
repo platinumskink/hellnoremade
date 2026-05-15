@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://dvqeyo5nykoyt"]
 
-[ext_resource type="Script" uid="uid://7k6xq5eupnsy" path="res://scripts/projectile.gd" id="1_3dmh2"]
+[ext_resource type="Script" uid="uid://c1peinnstvgu2" path="res://scripts/apple.gd" id="1_moe8n"]
 [ext_resource type="Texture2D" uid="uid://bpo2t2tnorrbt" path="res://assets/Apple.png" id="2_7vr8k"]
 [ext_resource type="PackedScene" uid="uid://cvu5e7qw2qc23" path="res://scenes/gravity_component.tscn" id="3_3dmh2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3dmh2"]
 size = Vector2(15, 11.5)
 
-[node name="Apple" type="Area2D" unique_id=972890807]
-script = ExtResource("1_3dmh2")
+[node name="Apple" type="Area2D" unique_id=972890807 groups=["projectiles"]]
+script = ExtResource("1_moe8n")
 initial_speed = 500
 metadata/_custom_type_script = "uid://cge861h7bsyos"
 
@@ -21,6 +21,7 @@ position = Vector2(0.5, 0.25)
 shape = SubResource("RectangleShape2D_3dmh2")
 
 [node name="GravityComponent" parent="." unique_id=397096499 instance=ExtResource("3_3dmh2")]
-gravity_force = 700
+gravity_force = 1000
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

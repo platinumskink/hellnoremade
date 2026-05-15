@@ -1,7 +1,10 @@
+class_name EnemyFactory
 extends Area2D
 
-var appearance_rate = [1, 0, 0, 0, 0, 0]
-var demon_type = [
+signal add_to_score(score: int)
+
+var appearance_rate: Array[int] = [1, 0, 0, 0, 0, 0]
+var demon_type: Array[GlobalEnums.Demons] = [
 	GlobalEnums.Demons.DEMON,
 	GlobalEnums.Demons.DEBAT,
 	GlobalEnums.Demons.UMBRELLIE,
@@ -9,42 +12,30 @@ var demon_type = [
 	GlobalEnums.Demons.MUSCLE,
 	GlobalEnums.Demons.BLOB,
 ]
-var appearance_percent_chance = 5
+var appearance_percent_chance: int = 5
 @onready var timer: Timer = $Timer
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 
 var enemy_count: int = 0
 
-var demon = preload("res://scenes/enemies/demon.tscn")
-
-
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+var demon: Resource = preload("res://scenes/enemies/demon.tscn")
 
 
 func _on_timer_timeout() -> void:
 	timer.start(0)
-	var roll: int = randf_range(0, 100)
+	var roll: float = randf_range(0, 100)
 	if roll <= appearance_percent_chance:
 		enemy_count += 1
 		spawn_enemy()
 		roll = randf_range(0, 100)
 
-func spawn_enemy():
-	var enemy_type = pick_enemy_type()
+func spawn_enemy() -> void:
+	var enemy_type: GlobalEnums.Demons = pick_enemy_type()
 	var rect : Rect2 = collision_shape_2d.shape.get_rect()
-	var x = randi_range(rect.position.x, rect.position.x+rect.size.x) + (rect.size.x / 2)
-	var rand_point = Vector2(x,0) 
-	var instance
+	var x: float = randi_range(rect.position.x, rect.position.x+rect.size.x) + (rect.size.x / 2)
+	var rand_point: Vector2 = Vector2(x,0) 
+	var instance: GraphicalObject
 	match enemy_type:
 		GlobalEnums.Demons.DEMON:
 			instance = demon.instantiate()
@@ -61,6 +52,7 @@ func spawn_enemy():
 			return
 	instance.position = rand_point
 	add_child(instance)
+	instance.connect("enemy_defeated", self.enemy_defeated)
 
 func pick_enemy_type() -> GlobalEnums.Demons:
 	var totalCount: int = 0
@@ -73,3 +65,8 @@ func pick_enemy_type() -> GlobalEnums.Demons:
 			return demon_type[i]
 	assert(randomNumber <= 0, "pick_enemy_type failed")
 	return GlobalEnums.Demons.DEMON
+
+func enemy_defeated(enemies_hit: int, score: int) -> void:
+	var score_added: int = enemies_hit * score
+	print("worth: " + str(score_added))
+	add_to_score.emit(score_added)

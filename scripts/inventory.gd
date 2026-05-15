@@ -40,10 +40,10 @@ func _ready() -> void:
 	selection.position.x = weapon_x_values[GlobalEnums.Weapon.APPLE]
 
 
-func set_current_weapon(wpn: GlobalEnums.Weapon):
+func set_current_weapon(wpn: GlobalEnums.Weapon) -> void:
 	selection.position.x = weapon_x_values[wpn]
 
-func update_inventory(wpn: GlobalEnums.Weapon, ammo: int):
+func update_inventory(wpn: GlobalEnums.Weapon, ammo: int) -> void:
 	if wpn != GlobalEnums.Weapon.APPLE:
 		var label: Label = weapon_ammo_label_dictionary[wpn]
 		label.text = str(ammo)

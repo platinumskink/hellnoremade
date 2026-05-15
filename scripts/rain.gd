@@ -8,24 +8,24 @@ extends Projectile
 @onready var timer_3: Timer = $Timer3
 @onready var cloud_length: CollisionShape2D = $CollisionShape2D
 
-var rainDrop = preload("res://scenes/weapons/rain_drop.tscn")
+var rainDrop: Resource = preload("res://scenes/weapons/rain_drop.tscn")
 
-func reset_timers():
+func reset_timers() -> void:
 	reset_timer()
 	reset_timer_2()
 	reset_timer_3()
 
-func reset_timer():
+func reset_timer() -> void:
 	var new_time: float = randf_range(time_range_min, time_range_max)
 	timer.wait_time = new_time
 	timer.start(0)
 
-func reset_timer_2():
+func reset_timer_2() -> void:
 	var new_time: float = randf_range(time_range_min, time_range_max)
 	timer_2.wait_time = new_time
 	timer_2.start(0)
 
-func reset_timer_3():
+func reset_timer_3() -> void:
 	var new_time: float = randf_range(time_range_min, time_range_max)
 	timer_3.wait_time = new_time
 	timer_3.start(0)
@@ -43,11 +43,11 @@ func _on_timer_3_timeout() -> void:
 	spawn_raindrop()
 	
 func spawn_raindrop() -> void:
-	var instance = rainDrop.instantiate()
+	var instance: GraphicalObject = rainDrop.instantiate()
 	instance.set_starting_speed(Vector2(0, 1))
 	var rect : Rect2 = cloud_length.shape.get_rect()
-	var x = randi_range(rect.position.x, rect.position.x+rect.size.x)
-	var rand_point = Vector2(x,0) 
+	var x: float = randi_range(rect.position.x, rect.position.x+rect.size.x)
+	var rand_point: Vector2 = Vector2(x,0) 
 	instance.z_index -= 1
 	instance.position = rand_point + global_position
 	get_parent().add_child(instance)

@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q8ifc"]
 size = Vector2(35, 7)
 
-[node name="Arrow" type="Area2D" unique_id=510011181]
+[node name="Arrow" type="Area2D" unique_id=510011181 groups=["projectiles"]]
 script = ExtResource("1_23jat")
 _rotation_speed = 7.0
 initial_speed = 500

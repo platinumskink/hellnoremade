@@ -1,15 +1,17 @@
 [gd_scene format=3 uid="uid://dt3k2ranaiyci"]
 
-[ext_resource type="Script" uid="uid://4k4oynmqr7x3" path="res://scripts/enemy.gd" id="1_v2cwo"]
+[ext_resource type="Script" uid="uid://d2etmebbmbvt7" path="res://scripts/demon.gd" id="1_v2cwo"]
 [ext_resource type="Texture2D" uid="uid://bsf41j0emmdsk" path="res://assets/Tiny Deamon.png" id="2_v2cwo"]
+[ext_resource type="PackedScene" uid="uid://cvu5e7qw2qc23" path="res://scenes/gravity_component.tscn" id="3_h0qet"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v2cwo"]
 size = Vector2(74, 48)
 
-[node name="Demon" type="Area2D" unique_id=372187258]
+[node name="Demon" type="Area2D" unique_id=372187258 groups=["enemies"]]
 script = ExtResource("1_v2cwo")
-min_speed = 50.0
-max_speed = 100.0
+points_worth = 25.0
+min_speed = 25.0
+max_speed = 150.0
 metadata/_custom_type_script = "uid://cge861h7bsyos"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1920418518]
@@ -18,3 +20,7 @@ texture = ExtResource("2_v2cwo")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1833956661]
 position = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_v2cwo")
+
+[node name="GravityComponent" parent="." unique_id=397096499 instance=ExtResource("3_h0qet")]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

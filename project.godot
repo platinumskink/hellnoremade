@@ -25,6 +25,11 @@ window/size/viewport_width=800
 window/size/viewport_height=610
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+projectiles=""
+enemies=""
+
 [input]
 
 click={
