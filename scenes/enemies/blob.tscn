@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://saot55om1rcu"]
+
+[ext_resource type="Script" uid="uid://bljw7p0efg6xu" path="res://scripts/blob.gd" id="1_awv44"]
+[ext_resource type="Texture2D" uid="uid://n5lnfwcrk3rj" path="res://assets/Blob.png" id="2_awv44"]
+[ext_resource type="PackedScene" uid="uid://cvu5e7qw2qc23" path="res://scenes/gravity_component.tscn" id="3_f3or1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_awv44"]
+radius = 77.00649
+
+[node name="Blob" type="Area2D" unique_id=372187258 groups=["enemies"]]
+script = ExtResource("1_awv44")
+metadata/_custom_type_script = "uid://cge861h7bsyos"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1920418518]
+texture = ExtResource("2_awv44")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1833956661]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_awv44")
+
+[node name="GravityComponent" parent="." unique_id=397096499 instance=ExtResource("3_f3or1")]
+gravity_force = -20
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

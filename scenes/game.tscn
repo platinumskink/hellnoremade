@@ -40,13 +40,14 @@ position = Vector2(400.5, 101.5)
 shape = SubResource("RectangleShape2D_u5sy4")
 
 [node name="TopZone" parent="." unique_id=407322558 instance=ExtResource("7_u5sy4")]
+position = Vector2(0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopZone" unique_id=1932960698]
 position = Vector2(401, -81)
 shape = SubResource("WorldBoundaryShape2D_gee14")
 
 [node name="EnemyFactory" parent="." unique_id=1030360853 instance=ExtResource("8_gee14")]
-position = Vector2(10, 590)
+position = Vector2(10, 658)
 
 [node name="LifeTracker" type="Label" parent="." unique_id=1115242624]
 offset_left = 8.0

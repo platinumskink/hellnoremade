@@ -3,7 +3,7 @@ extends Area2D
 
 signal add_to_score(score: int)
 
-var appearance_rate: Array[int] = [0, 0, 0, 1, 0, 0]
+var appearance_rate: Array[int] = [0, 0, 0, 0, 0, 1]
 var demon_type: Array[GlobalEnums.Demons] = [
 	GlobalEnums.Demons.DEMON,
 	GlobalEnums.Demons.DEBAT,
@@ -23,6 +23,8 @@ var demon: Resource = preload("res://scenes/enemies/demon.tscn")
 var debat: Resource = preload("res://scenes/enemies/debat.tscn")
 var umbrellie: Resource = preload("res://scenes/enemies/umbrellie.tscn")
 var skyver: Resource = preload("res://scenes/enemies/skyver.tscn")
+var muscle: Resource = preload("res://scenes/enemies/muscle.tscn")
+var blob: Resource = preload("res://scenes/enemies/blob.tscn")
 
 
 func _on_timer_timeout() -> void:
@@ -58,9 +60,11 @@ func spawn_enemy() -> void:
 				skyver_x *= -1
 			instance.set_starting_speed(Vector2(skyver_x, -100).normalized())
 		GlobalEnums.Demons.MUSCLE:
-			return
+			instance = muscle.instantiate()
+			instance.set_starting_speed(Vector2(0, -1))
 		GlobalEnums.Demons.BLOB:
-			return
+			instance = blob.instantiate()
+			instance.set_starting_speed(Vector2(0, -1))
 	instance.position = rand_point
 	add_child(instance)
 	instance.connect("enemy_defeated", self.enemy_defeated)

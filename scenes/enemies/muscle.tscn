@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://c5yua2u0knqek"]
+
+[ext_resource type="Script" uid="uid://p27rj00ubqqp" path="res://scripts/muscle.gd" id="1_swyp2"]
+[ext_resource type="Texture2D" uid="uid://devrjrx1at4aj" path="res://assets/MuscleDeamon.png" id="2_swyp2"]
+[ext_resource type="PackedScene" uid="uid://cvu5e7qw2qc23" path="res://scenes/gravity_component.tscn" id="3_umrex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2cwo"]
+size = Vector2(153, 60)
+
+[node name="Muscle" type="Area2D" unique_id=372187258 groups=["enemies"]]
+script = ExtResource("1_swyp2")
+points_worth = 150.0
+min_speed = 25.0
+max_speed = 75.0
+metadata/_custom_type_script = "uid://cge861h7bsyos"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1920418518]
+texture = ExtResource("2_swyp2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1833956661]
+position = Vector2(0.5, 5)
+shape = SubResource("RectangleShape2D_v2cwo")
+
+[node name="GravityComponent" parent="." unique_id=397096499 instance=ExtResource("3_umrex")]
+
+[node name="Timer" type="Timer" parent="." unique_id=1244360614]
+wait_time = 0.2
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
