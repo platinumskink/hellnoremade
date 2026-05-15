@@ -12,7 +12,7 @@ var bomb: Resource = preload("res://scenes/weapons/bomb.tscn")
 @export var gameZone: GameZone
 
 func shoot(start_point: Vector2, distance_vector: Vector2, wpn: GlobalEnums.Weapon) -> void:
-	var instance
+	var instance: Projectile
 	match wpn:
 		GlobalEnums.Weapon.APPLE:
 			instance = apple.instantiate()

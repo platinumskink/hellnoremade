@@ -16,3 +16,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	queue_free()
+
+func impact_on_enemy(_enemy: Enemy) -> void:
+	pass

@@ -3,7 +3,7 @@ extends Area2D
 
 signal add_to_score(score: int)
 
-var appearance_rate: Array[int] = [1, 0, 0, 0, 0, 0]
+var appearance_rate: Array[int] = [0, 1, 0, 0, 0, 0]
 var demon_type: Array[GlobalEnums.Demons] = [
 	GlobalEnums.Demons.DEMON,
 	GlobalEnums.Demons.DEBAT,
@@ -20,6 +20,7 @@ var appearance_percent_chance: int = 5
 var enemy_count: int = 0
 
 var demon: Resource = preload("res://scenes/enemies/demon.tscn")
+var debat: Resource = preload("res://scenes/enemies/debat.tscn")
 
 
 func _on_timer_timeout() -> void:
@@ -32,6 +33,7 @@ func _on_timer_timeout() -> void:
 
 func spawn_enemy() -> void:
 	var enemy_type: GlobalEnums.Demons = pick_enemy_type()
+	print("picked enemy type: " + str(enemy_type))
 	var rect : Rect2 = collision_shape_2d.shape.get_rect()
 	var x: float = randi_range(rect.position.x, rect.position.x+rect.size.x) + (rect.size.x / 2)
 	var rand_point: Vector2 = Vector2(x,0) 
@@ -41,7 +43,10 @@ func spawn_enemy() -> void:
 			instance = demon.instantiate()
 			instance.set_starting_speed(Vector2(0, -1))
 		GlobalEnums.Demons.DEBAT:
-			return
+			print("debat!")
+			instance = debat.instantiate()
+			instance.set_starting_speed(Vector2(0, -1))
+			instance.set_default_speed()
 		GlobalEnums.Demons.UMBRELLIE:
 			return
 		GlobalEnums.Demons.SKYVER:
@@ -60,6 +65,8 @@ func pick_enemy_type() -> GlobalEnums.Demons:
 		totalCount += rate
 	var randomNumber: int = randi_range(0, totalCount)
 	for i in appearance_rate.size():
+		if appearance_rate[i] == 0:
+			continue
 		randomNumber -= appearance_rate[i]
 		if randomNumber <= 0:
 			return demon_type[i]

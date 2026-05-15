@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://byyny3rtv6qih"]
 
-[ext_resource type="Script" uid="uid://7k6xq5eupnsy" path="res://scripts/projectile.gd" id="1_870cc"]
+[ext_resource type="Script" uid="uid://fh2v765a100c" path="res://scripts/bomb.gd" id="1_870cc"]
 [ext_resource type="Texture2D" uid="uid://dk1rwjfpsx538" path="res://assets/Bomb.png" id="2_1x0so"]
 [ext_resource type="PackedScene" uid="uid://cvu5e7qw2qc23" path="res://scenes/gravity_component.tscn" id="3_fv3ha"]
 

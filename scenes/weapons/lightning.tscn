@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://csbbdk377uxb1"]
 
 [ext_resource type="Texture2D" uid="uid://n15xy4k1751j" path="res://assets/Bolt.png" id="1_k2dum"]
-[ext_resource type="Script" uid="uid://7k6xq5eupnsy" path="res://scripts/projectile.gd" id="1_n7g4i"]
+[ext_resource type="Script" uid="uid://bk8s7re5am37m" path="res://scripts/lightning.gd" id="1_xjqp8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n7g4i"]
 size = Vector2(48, 18)
 
 [node name="Lightning" type="Area2D" unique_id=542167930 groups=["projectiles"]]
-script = ExtResource("1_n7g4i")
+script = ExtResource("1_xjqp8")
 initial_speed = 2000
 weapon_type = 1
 

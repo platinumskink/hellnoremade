@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bqfgsb4pwlts1"]
+
+[ext_resource type="Script" uid="uid://b5dtsyhjwcg06" path="res://scripts/debat.gd" id="1_8n3ti"]
+[ext_resource type="Texture2D" uid="uid://blklax705380f" path="res://assets/Debat.png" id="2_8n3ti"]
+[ext_resource type="PackedScene" uid="uid://cvu5e7qw2qc23" path="res://scenes/gravity_component.tscn" id="3_l53hf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2cwo"]
+size = Vector2(28, 20)
+
+[node name="Debat" type="Area2D" unique_id=372187258 groups=["enemies"]]
+script = ExtResource("1_8n3ti")
+points_worth = 50.0
+min_speed = 25.0
+max_speed = 50.0
+metadata/_custom_type_script = "uid://cge861h7bsyos"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1920418518]
+texture = ExtResource("2_8n3ti")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1833956661]
+shape = SubResource("RectangleShape2D_v2cwo")
+
+[node name="GravityComponent" parent="." unique_id=397096499 instance=ExtResource("3_l53hf")]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

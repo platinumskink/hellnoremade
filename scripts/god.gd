@@ -69,7 +69,7 @@ func _ready() -> void:
 	originalRotation = arm.rotation
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	arrow.look_at(get_global_mouse_position())
 	if !canThrow && !hasThrown:
 		arm.look_at(get_global_mouse_position())
@@ -87,7 +87,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			weapon.visible = true
 
-func _input(event): # When an action happened.
+func _input(event) -> void: # When an action happened.
 	if event.is_action_pressed("click") && canThrow:
 		canThrow = false
 		timer.start(throwDelay)

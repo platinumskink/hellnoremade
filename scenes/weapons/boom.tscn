@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://drjmlqq8dwhti"]
+
+[ext_resource type="Script" uid="uid://cyxuontiu0016" path="res://scripts/boom.gd" id="1_kpoph"]
+[ext_resource type="Texture2D" uid="uid://bggw1ttjmksx8" path="res://assets/Bang.png" id="2_dykib"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fcwth"]
+radius = 343.01166
+
+[node name="Boom" type="Area2D" unique_id=1859273189 groups=["projectiles"]]
+script = ExtResource("1_kpoph")
+weapon_type = 5
+metadata/_custom_type_script = "uid://7k6xq5eupnsy"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1673267320]
+position = Vector2(6, -31)
+texture = ExtResource("2_dykib")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=30696640]
+shape = SubResource("CircleShape2D_fcwth")
+
+[node name="Timer" type="Timer" parent="." unique_id=840463061 groups=["projectiles"]]
+wait_time = 0.485
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

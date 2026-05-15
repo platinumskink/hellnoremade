@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cxuuj4e5a6l3k"]
 
-[ext_resource type="Script" uid="uid://7k6xq5eupnsy" path="res://scripts/projectile.gd" id="1_33u3d"]
+[ext_resource type="Script" uid="uid://bklger8yqqcde" path="res://scripts/rain_drop.gd" id="1_33u3d"]
 [ext_resource type="Texture2D" uid="uid://cj1ypr7iyqehl" path="res://assets/rain.png" id="2_4cgdb"]
 [ext_resource type="PackedScene" uid="uid://cvu5e7qw2qc23" path="res://scenes/gravity_component.tscn" id="3_rp0tb"]
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://3th3ik40tvqb"]
 
-[ext_resource type="Script" uid="uid://7k6xq5eupnsy" path="res://scripts/projectile.gd" id="1_83eji"]
+[ext_resource type="Script" uid="uid://dctfe5vc5k5t7" path="res://scripts/meteor.gd" id="1_n7o07"]
 [ext_resource type="Texture2D" uid="uid://odpar4vv0gru" path="res://assets/CometInFlight.png" id="2_83eji"]
 [ext_resource type="PackedScene" uid="uid://cvu5e7qw2qc23" path="res://scenes/gravity_component.tscn" id="3_lhxke"]
 
@@ -8,7 +8,7 @@
 size = Vector2(15, 11.5)
 
 [node name="Meteor" type="Area2D" unique_id=972890807 groups=["projectiles"]]
-script = ExtResource("1_83eji")
+script = ExtResource("1_n7o07")
 initial_speed = 600
 weapon_type = 2
 metadata/_custom_type_script = "uid://cge861h7bsyos"
