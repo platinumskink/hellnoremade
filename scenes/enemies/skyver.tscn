@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bb4grgyypoile"]
+
+[ext_resource type="Script" uid="uid://ba2rqujmq4d0y" path="res://scripts/skyver.gd" id="1_v05xw"]
+[ext_resource type="Texture2D" uid="uid://b05r20mettgo5" path="res://assets/SkyverAppear.png" id="2_v05xw"]
+[ext_resource type="Texture2D" uid="uid://88ynsxlipit6" path="res://assets/SkyverRocketing.png" id="3_qng5d"]
+[ext_resource type="PackedScene" uid="uid://cvu5e7qw2qc23" path="res://scenes/gravity_component.tscn" id="4_qng5d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2cwo"]
+size = Vector2(92, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwo6u"]
+size = Vector2(32, 76)
+
+[node name="Skyver" type="Area2D" unique_id=372187258 groups=["enemies"]]
+script = ExtResource("1_v05xw")
+points_worth = 100.0
+min_speed = 250.0
+max_speed = 300.0
+metadata/_custom_type_script = "uid://cge861h7bsyos"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1920418518]
+texture = ExtResource("2_v05xw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1833956661]
+position = Vector2(1, 11.5)
+shape = SubResource("RectangleShape2D_v2cwo")
+
+[node name="GravityComponent" parent="." unique_id=397096499 instance=ExtResource("4_qng5d")]
+gravity_force = 200
+
+[node name="Timer" type="Timer" parent="." unique_id=1734965887]
+wait_time = 3.0
+autostart = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=163864681]
+texture = ExtResource("3_qng5d")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=726017351]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_dwo6u")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="enemy_defeated" from="." to="." method="_on_enemy_defeated"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
