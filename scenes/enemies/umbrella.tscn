@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b4piho30xtm2r"]
+
+[ext_resource type="Script" uid="uid://0d3rev1k28fc" path="res://scripts/umbrella.gd" id="1_w1yad"]
+[ext_resource type="Texture2D" uid="uid://ht5uqgl5sjn1" path="res://assets/Umbrella.png" id="2_w1yad"]
+[ext_resource type="PackedScene" uid="uid://cvu5e7qw2qc23" path="res://scenes/gravity_component.tscn" id="3_4n21r"]
+
+[node name="Umbrella" type="Area2D" unique_id=45838236 groups=["enemies"]]
+script = ExtResource("1_w1yad")
+metadata/_custom_type_script = "uid://cge861h7bsyos"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2142569413]
+texture = ExtResource("2_w1yad")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1471394598]
+polygon = PackedVector2Array(-37, -13, 37, -13, 36, -20, 26, -32, 0, -38, -21, -29)
+
+[node name="GravityComponent" parent="." unique_id=397096499 instance=ExtResource("3_4n21r")]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

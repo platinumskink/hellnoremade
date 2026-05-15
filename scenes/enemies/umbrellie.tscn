@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bpvim0iyht6ni"]
+
+[ext_resource type="Script" uid="uid://ces7whebt153f" path="res://scripts/umbrellie.gd" id="1_ehmqo"]
+[ext_resource type="Texture2D" uid="uid://0501vxx6e0mo" path="res://assets/Umbrellie.png" id="2_ehmqo"]
+[ext_resource type="PackedScene" uid="uid://cvu5e7qw2qc23" path="res://scenes/gravity_component.tscn" id="3_1ak0u"]
+[ext_resource type="PackedScene" uid="uid://b4piho30xtm2r" path="res://scenes/enemies/umbrella.tscn" id="4_pv6w4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2cwo"]
+size = Vector2(46, 51)
+
+[node name="Umbrellie" type="Area2D" unique_id=372187258 groups=["enemies"]]
+script = ExtResource("1_ehmqo")
+points_worth = 50.0
+min_speed = 50.0
+max_speed = 100.0
+metadata/_custom_type_script = "uid://cge861h7bsyos"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1920418518]
+texture = ExtResource("2_ehmqo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1833956661]
+position = Vector2(1, 2.5)
+shape = SubResource("RectangleShape2D_v2cwo")
+
+[node name="GravityComponent" parent="." unique_id=397096499 instance=ExtResource("3_1ak0u")]
+
+[node name="Umbrella" parent="." unique_id=45838236 instance=ExtResource("4_pv6w4")]
+position = Vector2(-2, -25)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="enemy_defeated" from="." to="." method="_on_enemy_defeated"]

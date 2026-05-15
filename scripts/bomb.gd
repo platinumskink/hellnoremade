@@ -4,7 +4,7 @@ extends Projectile
 var boom: Resource = preload("res://scenes/weapons/boom.tscn")
 
 
-func impact_on_enemy(_enemy: Enemy) -> void:
+func impact_on_enemy(_enemy: Area2D) -> void:
 	var instance: Boom = boom.instantiate()
 	instance.enemies_hit = enemies_hit
 	instance.position = self.position
