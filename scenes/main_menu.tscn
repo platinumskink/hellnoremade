@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dqurefdta0d7a"]
+
+[ext_resource type="Script" uid="uid://dw3bln3iwnkcf" path="res://scripts/main_menu.gd" id="1_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://2sswqdv7puim" path="res://assets/God Stage3.png" id="2_wu84c"]
+[ext_resource type="Texture2D" uid="uid://bj77vgly5cgqb" path="res://assets/Title.png" id="3_8ln24"]
+
+[node name="MainMenu" type="Node2D" unique_id=1807064148]
+script = ExtResource("1_bqqt6")
+
+[node name="GodStage3" type="Sprite2D" parent="." unique_id=1101712857]
+position = Vector2(403, 305)
+texture = ExtResource("2_wu84c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=999798453]
+position = Vector2(400, 166)
+texture = ExtResource("3_8ln24")
+
+[node name="StartButton" type="Button" parent="." unique_id=2020977624]
+offset_left = 343.0
+offset_top = 355.0
+offset_right = 444.0
+offset_bottom = 386.0
+text = "Start"
+
+[node name="InstructionsButton" type="Button" parent="." unique_id=1229683852]
+offset_left = 343.0
+offset_top = 388.0
+offset_right = 419.0
+offset_bottom = 419.0
+text = "Instructions"
+
+[node name="QuitButton" type="Button" parent="." unique_id=292595130]
+offset_left = 343.0
+offset_top = 421.0
+offset_right = 444.0
+offset_bottom = 452.0
+text = "Quit"
+
+[connection signal="button_down" from="StartButton" to="." method="_on_start_button_button_down"]
+[connection signal="button_down" from="InstructionsButton" to="." method="_on_instructions_button_button_down"]
+[connection signal="button_down" from="QuitButton" to="." method="_on_quit_button_button_down"]

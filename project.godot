@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="HellnoRemade"
-run/main_scene="uid://ktdbf4q4fvtq"
+run/main_scene="uid://dqurefdta0d7a"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Globals="*uid://crtd3t4yfuoeo"
 
 [debug]
 

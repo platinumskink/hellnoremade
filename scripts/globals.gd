@@ -20,3 +20,5 @@ enum Demons {
 	MUSCLE,
 	BLOB,
 }
+
+var final_score: int = 0

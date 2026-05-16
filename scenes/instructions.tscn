@@ -1,0 +1,201 @@
+[gd_scene format=3 uid="uid://dxvqjlyc28f3b"]
+
+[ext_resource type="Texture2D" uid="uid://bpo2t2tnorrbt" path="res://assets/Apple.png" id="1_iilnc"]
+[ext_resource type="Script" uid="uid://bre3a56urj0n" path="res://scripts/instructions.gd" id="1_lxjvu"]
+[ext_resource type="Texture2D" uid="uid://n15xy4k1751j" path="res://assets/Bolt.png" id="2_lxjvu"]
+[ext_resource type="Texture2D" uid="uid://c6c5uhy1eu2ns" path="res://assets/CometInHand.png" id="3_klb3h"]
+[ext_resource type="Texture2D" uid="uid://s1lf6vshpr58" path="res://assets/Cloud.png" id="4_2dl3f"]
+[ext_resource type="Texture2D" uid="uid://dkqwegyp507x8" path="res://assets/BowArrow.png" id="5_65goo"]
+[ext_resource type="Texture2D" uid="uid://dk1rwjfpsx538" path="res://assets/Bomb.png" id="6_06fhm"]
+[ext_resource type="Texture2D" uid="uid://bsf41j0emmdsk" path="res://assets/Tiny Deamon.png" id="7_e7qpp"]
+[ext_resource type="Texture2D" uid="uid://blklax705380f" path="res://assets/Debat.png" id="8_5fkmn"]
+[ext_resource type="Texture2D" uid="uid://0501vxx6e0mo" path="res://assets/Umbrellie.png" id="9_7o7na"]
+[ext_resource type="Texture2D" uid="uid://ht5uqgl5sjn1" path="res://assets/Umbrella.png" id="10_iow66"]
+[ext_resource type="Texture2D" uid="uid://b05r20mettgo5" path="res://assets/SkyverAppear.png" id="11_33w4r"]
+[ext_resource type="Texture2D" uid="uid://devrjrx1at4aj" path="res://assets/MuscleDeamon.png" id="12_uowqn"]
+[ext_resource type="Texture2D" uid="uid://n5lnfwcrk3rj" path="res://assets/Blob.png" id="13_alyqd"]
+
+[node name="Instructions" type="Node2D" unique_id=539250537]
+script = ExtResource("1_lxjvu")
+
+[node name="Label" type="Label" parent="." unique_id=1502294059]
+offset_left = 153.0
+offset_top = 9.0
+offset_right = 656.0
+offset_bottom = 149.0
+text = "Demons are trying to escape hell! Stop them with the various divine items that you can throw at them! Hit multiple enemies with the same throw to multiply the points!
+
+Get more items to throw as you get more points!"
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="." unique_id=1652098756]
+offset_left = 163.0
+offset_top = 163.0
+offset_right = 244.0
+offset_bottom = 186.0
+text = "Projectiles"
+
+[node name="Label3" type="Label" parent="." unique_id=1964366642]
+offset_left = 606.0
+offset_top = 160.0
+offset_right = 672.0
+offset_bottom = 183.0
+text = "Enemies"
+
+[node name="Apple" type="Sprite2D" parent="." unique_id=1841157004]
+position = Vector2(80, 216)
+texture = ExtResource("1_iilnc")
+
+[node name="Bolt" type="Sprite2D" parent="." unique_id=1427449563]
+position = Vector2(78, 267)
+rotation = 1.5707964
+texture = ExtResource("2_lxjvu")
+
+[node name="CometInHand" type="Sprite2D" parent="." unique_id=1110469482]
+position = Vector2(77, 329)
+texture = ExtResource("3_klb3h")
+
+[node name="Cloud" type="Sprite2D" parent="." unique_id=587526394]
+position = Vector2(72, 385)
+texture = ExtResource("4_2dl3f")
+
+[node name="BowArrow" type="Sprite2D" parent="." unique_id=245997743]
+position = Vector2(66, 435)
+texture = ExtResource("5_65goo")
+
+[node name="Bomb" type="Sprite2D" parent="." unique_id=146905287]
+position = Vector2(58, 489)
+texture = ExtResource("6_06fhm")
+
+[node name="TinyDeamon" type="Sprite2D" parent="." unique_id=398094884]
+position = Vector2(690, 218)
+texture = ExtResource("7_e7qpp")
+
+[node name="Debat" type="Sprite2D" parent="." unique_id=1486357727]
+position = Vector2(689, 288)
+texture = ExtResource("8_5fkmn")
+
+[node name="Umbrellie" type="Sprite2D" parent="." unique_id=473021385]
+position = Vector2(696, 375)
+texture = ExtResource("9_7o7na")
+
+[node name="Umbrella" type="Sprite2D" parent="." unique_id=662438919]
+position = Vector2(694, 355)
+texture = ExtResource("10_iow66")
+
+[node name="SkyverAppear" type="Sprite2D" parent="." unique_id=4500216]
+position = Vector2(687, 440)
+texture = ExtResource("11_33w4r")
+
+[node name="MuscleDeamon" type="Sprite2D" parent="." unique_id=212112296]
+position = Vector2(691, 512)
+texture = ExtResource("12_uowqn")
+
+[node name="Blob" type="Sprite2D" parent="." unique_id=1828627689]
+position = Vector2(703, 634)
+texture = ExtResource("13_alyqd")
+
+[node name="Label4" type="Label" parent="." unique_id=323571442]
+offset_left = 448.0
+offset_top = 183.0
+offset_right = 645.0
+offset_bottom = 258.0
+text = "Demon. It will slowly drift upwards. Beat with anything."
+autowrap_mode = 3
+
+[node name="Label5" type="Label" parent="." unique_id=1969356046]
+offset_left = 442.0
+offset_top = 263.0
+offset_right = 639.0
+offset_bottom = 338.0
+text = "Debat. Small and agile. Hit with something fast."
+autowrap_mode = 3
+
+[node name="Label6" type="Label" parent="." unique_id=1328522935]
+offset_left = 442.0
+offset_top = 324.0
+offset_right = 654.0
+offset_bottom = 399.0
+text = "Umbrellie. Their umbrellas protect them from weak attacks from above."
+autowrap_mode = 3
+
+[node name="Label7" type="Label" parent="." unique_id=858716412]
+offset_left = 395.0
+offset_top = 403.0
+offset_right = 642.0
+offset_bottom = 478.0
+text = "Skyver. They will briefly float at the bottom, before rocketing upwards at high speed!"
+autowrap_mode = 3
+
+[node name="Label8" type="Label" parent="." unique_id=1374245589]
+offset_left = 356.0
+offset_top = 477.0
+offset_right = 603.0
+offset_bottom = 552.0
+text = "Muscle Demon. Like a normal demon, but needs a lot more hits to defeat."
+autowrap_mode = 3
+
+[node name="Label9" type="Label" parent="." unique_id=1995972240]
+offset_left = 339.0
+offset_top = 553.0
+offset_right = 586.0
+offset_bottom = 628.0
+text = "Blob. Invincible. Defeat it by knocking it back where it came."
+autowrap_mode = 3
+
+[node name="Label10" type="Label" parent="." unique_id=496322062]
+offset_left = 109.0
+offset_top = 191.0
+offset_right = 397.0
+offset_bottom = 266.0
+text = "Apple. Straight from the forbidden tree. Bounces on impact."
+autowrap_mode = 3
+
+[node name="Label11" type="Label" parent="." unique_id=1457798940]
+offset_left = 102.0
+offset_top = 245.0
+offset_right = 390.0
+offset_bottom = 320.0
+text = "Lightning. Fast. Good for precisions and demons out of range of apples."
+autowrap_mode = 3
+
+[node name="Label12" type="Label" parent="." unique_id=105118596]
+offset_left = 114.0
+offset_top = 305.0
+offset_right = 402.0
+offset_bottom = 380.0
+text = "Meteor. Hits hard and deals a lot of damage to durable foes."
+autowrap_mode = 3
+
+[node name="Label13" type="Label" parent="." unique_id=765308143]
+offset_left = 151.0
+offset_top = 359.0
+offset_right = 439.0
+offset_bottom = 434.0
+text = "Holy Rain. Moves slowly, attacking with heavy firepower below it."
+autowrap_mode = 3
+
+[node name="Label14" type="Label" parent="." unique_id=1372509673]
+offset_left = 92.0
+offset_top = 413.0
+offset_right = 395.0
+offset_bottom = 488.0
+text = "Divine Arrow. It will home in towards the mouse's current position."
+autowrap_mode = 3
+
+[node name="Label15" type="Label" parent="." unique_id=203250437]
+offset_left = 75.0
+offset_top = 467.0
+offset_right = 378.0
+offset_bottom = 542.0
+text = "Bomb. Blows up on impact and instantly defeats all surrounding enemies."
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="." unique_id=1297243905]
+offset_left = 34.0
+offset_top = 37.0
+offset_right = 79.0
+offset_bottom = 68.0
+text = "Back"
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

@@ -26,7 +26,7 @@ position = Vector2(1, 11.5)
 shape = SubResource("RectangleShape2D_v2cwo")
 
 [node name="GravityComponent" parent="." unique_id=397096499 instance=ExtResource("4_qng5d")]
-gravity_force = 200
+gravity_force = 150
 
 [node name="Timer" type="Timer" parent="." unique_id=1734965887]
 wait_time = 3.0

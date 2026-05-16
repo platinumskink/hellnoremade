@@ -107,7 +107,6 @@ func pick_enemy_type() -> GlobalEnums.Demons:
 	var totalCount: int = 0
 	for rate in appearance_rate[current_appearence_rate]:
 		totalCount += rate
-		print("rate: " + str(rate))
 	var randomNumber: int = randi_range(0, totalCount)
 	for i in appearance_rate[current_appearence_rate].size():
 		if appearance_rate[current_appearence_rate][i] == 0:

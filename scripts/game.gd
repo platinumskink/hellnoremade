@@ -29,7 +29,8 @@ func _on_top_zone_enemy_escaped() -> void:
 	lives -= 1
 	life_tracker.text = "Lives: " + str(lives)
 	if lives <= 0:
-		get_tree().quit()
+		Globals.final_score = score
+		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 
 
 func _on_enemy_factory_add_to_score(enemy_score: int) -> void:
@@ -46,7 +47,6 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		if !cant_pause:
 			if !get_tree().paused:
-				print("game paused")
 				pause_menu.visible = true
 				pause_menu.pause_layer.visible = true
 				cant_pause = true

@@ -12,7 +12,6 @@ var right: bool = true
 
 func set_default_speed() -> void:
 	default_speed = speed
-	print("default speed: " + str(default_speed))
 	var random: int = randi_range(0,1)
 	if random == 0:
 		speed.x = switch_speed

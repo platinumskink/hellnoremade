@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bsiw6n26u8aqh"]
+
+[ext_resource type="Script" uid="uid://dgvmpeutuipxk" path="res://scripts/game_over.gd" id="1_wqhvx"]
+[ext_resource type="Texture2D" uid="uid://b3bwsuobchj6" path="res://assets/Game Over.png" id="2_tbwuq"]
+
+[node name="GameOver" type="Node2D" unique_id=1772100241]
+script = ExtResource("1_wqhvx")
+
+[node name="GameOver" type="Sprite2D" parent="." unique_id=1629038494]
+position = Vector2(426, 309)
+texture = ExtResource("2_tbwuq")
+
+[node name="Label" type="Label" parent="." unique_id=849273871]
+offset_left = 96.0
+offset_top = 228.0
+offset_right = 189.0
+offset_bottom = 251.0
+text = "Final Score: "
+
+[node name="Button" type="Button" parent="." unique_id=499706055]
+offset_left = 123.0
+offset_top = 272.0
+offset_right = 242.0
+offset_bottom = 303.0
+text = "To Main Menu"
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
