@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bm67mhaebegyt"]
+
+[ext_resource type="Script" uid="uid://dxopwfdcop8d" path="res://scripts/pause_menu.gd" id="1_myx47"]
+[ext_resource type="Shader" uid="uid://c2e4nn8rhjtcx" path="res://scenes/pause.gdshader" id="1_n87rw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_myx47"]
+shader = ExtResource("1_n87rw")
+
+[node name="PauseMenu" type="Node2D" unique_id=1629619235]
+process_mode = 2
+visible = false
+script = ExtResource("1_myx47")
+
+[node name="PauseLayer" type="CanvasLayer" parent="." unique_id=338618893]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="PauseLayer" unique_id=17745299]
+material = SubResource("ShaderMaterial_myx47")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QuitButton" type="Button" parent="PauseLayer" unique_id=2033087416]
+offset_left = 369.0
+offset_top = 339.0
+offset_right = 465.0
+offset_bottom = 384.0
+text = "Quit"
+
+[node name="RestartButton" type="Button" parent="PauseLayer" unique_id=734613841]
+offset_left = 369.0
+offset_top = 289.0
+offset_right = 465.0
+offset_bottom = 334.0
+text = "Restart"
+
+[node name="UnpauseButton" type="Button" parent="PauseLayer" unique_id=2097718530]
+offset_left = 369.0
+offset_top = 240.0
+offset_right = 465.0
+offset_bottom = 285.0
+text = "Unpause"
+
+[connection signal="pressed" from="PauseLayer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="PauseLayer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="PauseLayer/UnpauseButton" to="." method="_on_unpause_button_pressed"]

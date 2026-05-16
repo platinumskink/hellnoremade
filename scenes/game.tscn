@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://b2lqqnqikkec" path="res://scenes/game_zone.tscn" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://dac68y2uwb7to" path="res://scenes/top_zone.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://d3afdmnbe4gu1" path="res://scenes/enemy_factory.tscn" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://clbp8605tbqph" path="res://scenes/blob_despawn_zone.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://bm67mhaebegyt" path="res://scenes/pause_menu.tscn" id="10_vtaks"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5sy4"]
 size = Vector2(819, 1037)
@@ -43,7 +45,7 @@ shape = SubResource("RectangleShape2D_u5sy4")
 position = Vector2(0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopZone" unique_id=1932960698]
-position = Vector2(401, -81)
+position = Vector2(399, -181)
 shape = SubResource("WorldBoundaryShape2D_gee14")
 
 [node name="EnemyFactory" parent="." unique_id=1030360853 instance=ExtResource("8_gee14")]
@@ -63,7 +65,25 @@ offset_right = 48.0
 offset_bottom = 44.0
 text = "100"
 
+[node name="BlobDespawnZone" parent="." unique_id=1406425395 instance=ExtResource("9_0tnpc")]
+position = Vector2(0, 836)
+
+[node name="PauseTimer" type="Timer" parent="." unique_id=113549984]
+wait_time = 0.1
+
+[node name="PauseMenu" parent="." unique_id=1360472781 instance=ExtResource("10_vtaks")]
+
+[node name="Button" type="Button" parent="." unique_id=85260412]
+offset_left = 9.0
+offset_top = 44.0
+offset_right = 73.0
+offset_bottom = 75.0
+text = "Pause"
+
 [connection signal="changed_weapon" from="God" to="." method="_on_god_changed_weapon"]
 [connection signal="throw" from="God" to="." method="_on_god_throw"]
+[connection signal="update_all_ammo" from="God" to="." method="_on_god_update_all_ammo"]
 [connection signal="enemy_escaped" from="TopZone" to="." method="_on_top_zone_enemy_escaped"]
 [connection signal="add_to_score" from="EnemyFactory" to="." method="_on_enemy_factory_add_to_score"]
+[connection signal="timeout" from="PauseTimer" to="." method="_on_pause_timer_timeout"]
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

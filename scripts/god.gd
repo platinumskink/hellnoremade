@@ -18,6 +18,7 @@ const bomb: Texture2D = preload("res://assets/Bomb.png")
 
 signal throw(ammo: int)
 signal changed_weapon(wpn: GlobalEnums.Weapon)
+signal update_all_ammo(weapon_ammo: Dictionary[GlobalEnums.Weapon, int])
 
 var weapon_sprites: Dictionary[GlobalEnums.Weapon, Texture2D] = {
 	GlobalEnums.Weapon.APPLE: apple,
@@ -37,11 +38,11 @@ var weapon_in_hand_offsets: Dictionary[GlobalEnums.Weapon, Vector2] = {
 }
 var weapon_ammo: Dictionary[GlobalEnums.Weapon, int] = {
 	GlobalEnums.Weapon.APPLE: 1,
-	GlobalEnums.Weapon.LIGHTNING: 10,
-	GlobalEnums.Weapon.METEORITE: 10,
-	GlobalEnums.Weapon.RAIN: 10,
-	GlobalEnums.Weapon.BOW: 10,
-	GlobalEnums.Weapon.BOMB: 10,
+	GlobalEnums.Weapon.LIGHTNING: 0,
+	GlobalEnums.Weapon.METEORITE: 0,
+	GlobalEnums.Weapon.RAIN: 0,
+	GlobalEnums.Weapon.BOW: 0,
+	GlobalEnums.Weapon.BOMB: 0,
 }
 
 var throwDelay: float = 0.5
@@ -127,3 +128,18 @@ func _on_timer_timeout() -> void:
 	canThrow = true
 	hasThrown = false
 	arm.rotation = originalRotation
+
+var extra_lightning: int = 5
+var extra_meteor: int = 3
+var extra_rain: int = 1
+var extra_arrow: int = 1
+var extra_bomb: int = 1
+
+func add_ammo() -> void:
+	weapon_ammo[GlobalEnums.Weapon.LIGHTNING] += extra_lightning
+	weapon_ammo[GlobalEnums.Weapon.METEORITE] += extra_meteor
+	weapon_ammo[GlobalEnums.Weapon.RAIN] += extra_rain
+	weapon_ammo[GlobalEnums.Weapon.BOW] += extra_arrow
+	weapon_ammo[GlobalEnums.Weapon.BOMB] += extra_bomb
+	update_all_ammo.emit(weapon_ammo)
+	

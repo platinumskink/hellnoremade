@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://clbp8605tbqph"]
+
+[ext_resource type="Script" uid="uid://dbixu8coj8d71" path="res://scripts/blob_despawn_zone.gd" id="1_awc8j"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xhjhq"]
+
+[node name="BlobDespawnZone" type="Area2D" unique_id=1406425395]
+script = ExtResource("1_awc8j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=838695177]
+shape = SubResource("WorldBoundaryShape2D_xhjhq")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

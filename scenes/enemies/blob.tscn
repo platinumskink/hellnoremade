@@ -9,6 +9,7 @@ radius = 77.00649
 
 [node name="Blob" type="Area2D" unique_id=372187258 groups=["enemies"]]
 script = ExtResource("1_awv44")
+points_worth = 200.0
 metadata/_custom_type_script = "uid://cge861h7bsyos"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1920418518]
