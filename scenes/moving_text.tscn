@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cc1c38fyx4p6j"]
+
+[ext_resource type="Script" uid="uid://bdctdklhfbdbo" path="res://scripts/moving_text.gd" id="1_wry32"]
+
+[sub_resource type="Animation" id="Animation_s4qst"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wry32"]
+resource_name = "slowdown"
+length = 1.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.0333333),
+"transitions": PackedFloat32Array(0.4061267, 13.928783),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 43)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v4mou"]
+_data = {
+&"RESET": SubResource("Animation_s4qst"),
+&"slowdown": SubResource("Animation_wry32")
+}
+
+[node name="MovingText" type="Label" unique_id=183036190]
+offset_right = 15.0
+offset_bottom = 23.000023
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "-1"
+script = ExtResource("1_wry32")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1993720891]
+libraries/ = SubResource("AnimationLibrary_v4mou")

@@ -3,7 +3,7 @@ extends Node2D
 
 var lives: int = 20
 var score: int = 0
-@onready var life_tracker: Label = $LifeTracker
+@onready var life_tracker: FlashingText = $LifeTracker
 @onready var score_tracker: Label = $ScoreTracker
 @onready var inventory: Node2D = $Inventory
 @onready var pause_menu: Node = $PauseMenu
@@ -25,9 +25,10 @@ func _on_god_throw(wpn: GlobalEnums.Weapon, weapon_ammo: int) -> void:
 func _on_god_changed_weapon(wpn: GlobalEnums.Weapon) -> void:
 	inventory.set_current_weapon(wpn)
 
-func _on_top_zone_enemy_escaped() -> void:
+func _on_top_zone_enemy_escaped(position: Vector2) -> void:
 	lives -= 1
 	life_tracker.text = "Lives: " + str(lives)
+	life_tracker.play_flash()
 	if lives <= 0:
 		Globals.final_score = score
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")

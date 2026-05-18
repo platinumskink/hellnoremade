@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dac68y2uwb7to" path="res://scenes/top_zone.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://d3afdmnbe4gu1" path="res://scenes/enemy_factory.tscn" id="8_gee14"]
 [ext_resource type="PackedScene" uid="uid://clbp8605tbqph" path="res://scenes/blob_despawn_zone.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://dm13qygl7gacb" path="res://scenes/flashing_text.tscn" id="9_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://bm67mhaebegyt" path="res://scenes/pause_menu.tscn" id="10_vtaks"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5sy4"]
@@ -51,7 +52,7 @@ shape = SubResource("WorldBoundaryShape2D_gee14")
 [node name="EnemyFactory" parent="." unique_id=1030360853 instance=ExtResource("8_gee14")]
 position = Vector2(10, 658)
 
-[node name="LifeTracker" type="Label" parent="." unique_id=1115242624]
+[node name="LifeTracker" parent="." unique_id=694591882 instance=ExtResource("9_kvpfn")]
 offset_left = 8.0
 offset_top = 3.0
 offset_right = 48.0
